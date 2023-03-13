@@ -16,7 +16,6 @@ public class NewAPIs {
         System.out.println(List.of(1,2,3,4));
         System.out.println(Map.of(1,2,3,4));
 
-
         Stream<Optional<?>> streamOptional = List.of(Optional.of(1),
                 Optional.empty(),
                 Optional.of(2),
