@@ -9,5 +9,6 @@ public class StreamTest {
         String value = new ArrayList<String>().stream().collect(Collectors.joining());
         System.out.println(value.isEmpty());
         System.out.println("["+value+"]");
+        //Map<String, Integer> res = new ArrayList<String>().stream().collect(Collectors.groupingBy());
     }
 }
