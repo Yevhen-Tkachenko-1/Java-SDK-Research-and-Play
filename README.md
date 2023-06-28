@@ -1,2 +1,2 @@
-# java-sdk-research-and-playing
-Java project to check use cases, inestigate particular issue, examine features, train algorithm tasks, etc
+# Java SDK: Research and Play
+Java Core project to check use cases, investigate particular issue, examine features, train algorithm tasks, etc.
