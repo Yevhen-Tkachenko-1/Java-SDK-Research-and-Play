@@ -7,23 +7,20 @@ Implemented based on LinkedIn learning courses:
 - [**Concurrent Programming with Java**](https://www.linkedin.com/learning/parallel-and-concurrent-programming-with-java-1 'https://www.linkedin.com/learning/parallel-and-concurrent-programming-with-java-1')
 - [**Parallel Programming with Java**](https://www.linkedin.com/learning/parallel-and-concurrent-programming-with-java-2 'https://www.linkedin.com/learning/parallel-and-concurrent-programming-with-java-2')
 
-Covered topics:
+Content:
 
-[**Multithreading bases**](#multithreading-bases)
-
-- **Thread vs Process**
-- **Executing Scheduling**
-- **Thread Lifecycle**
-
-[**Concurrency in Java**](#concurrency-in-java)
-
-- **Mutual Exclusion: Data Race problem**
-- **Nested Lock**
-- **Non-Blocking Lock**
-- **Read-Write Lock**
-- **Multiple Locks: Deadlock problem**
-- **Multiple Locks: Livelock problem**
-- **Exception Handling: Abandoned Lock problem**
+* [Multithreading bases](#multithreading-bases)
+  * [Demo 1: Thread vs Process](#demo-1-thread-vs-process)
+  * [Demo 2: Executing Scheduling](#demo-2-executing-scheduling)
+  * [Demo 3: Thread Lifecycle](#demo-3-thread-lifecycle)
+* [Concurrency in Java](#concurrency-in-java)
+  * [Demo 4: Mutual Exclusion - resolving Data Race problem](#demo-4-mutual-exclusion---resolving-data-race-problem)
+  * [Demo 5: Nested Lock](#demo-5-nested-lock)
+  * [Demo 6: Non-Blocking Lock](#demo-6-non-blocking-lock)
+  * [Demo 7: Read-Write Lock](#demo-7-read-write-lock)
+  * [Demo 8: Multiple Locks: Deadlock problem](#demo-8-multiple-locks-deadlock-problem)
+  * [Demo 9: Multiple Locks: Livelock problem](#demo-9-multiple-locks-livelock-problem)
+  * [Demo 10: Exception Handling: Abandoned Lock problem](#demo-10-exception-handling-abandoned-lock-problem)
 
 ### Multithreading bases
 
@@ -31,7 +28,7 @@ Covered topics:
 
 1. On the pc under Windows OS open Task Manager and switch to Performance tab.<br>
    On CPU pane you can see overall CPU utilization which is about 10% in regular state.
-2. Start [app](multithreading/src/main/java/com/yevhent/bases/ThreadVsProcess.java) and see how CPU utilization is
+2. Start [app](src/main/java/yevhent/demo/multithreading/bases/ThreadVsProcess.java) and see how CPU utilization is
    increased: can be up to 100%.
 3. Get Process ID value from console output, e.g. 7428.<br>
    Now in Task Manager use Open Resource Monitor link to see more details.
@@ -44,7 +41,7 @@ Covered topics:
 
 #### Demo 2: Executing Scheduling
 
-1. Start [app](multithreading/src/main/java/com/yevhent/bases/ExecutingScheduling.java)
+1. Start [app](src/main/java/yevhent/demo/multithreading/bases/ExecutingScheduling.java)
 2. Check console output.
 3. There we have 11 rounds of execution.<br>
    Each time we start 2 Threads with the same order: Baron first, Olivia next.
@@ -54,7 +51,7 @@ Covered topics:
 
 #### Demo 3: Thread Lifecycle
 
-1. Start [app](multithreading/src/main/java/com/yevhent/bases/ThreadLifecycle.java)
+1. Start [app](src/main/java/yevhent/demo/multithreading/bases/ThreadLifecycle.java)
 2. Check console output.
 3. There we have all possible states:
     - `NEW` - A thread that has not yet started is in this state.
@@ -70,9 +67,9 @@ Covered topics:
 
 #### Demo 4: Mutual Exclusion - resolving Data Race problem
 
-1. Start [app](multithreading/src/main/java/com/yevhent/concurrency/datarace/MutualExclusionDemo.java)
+1. Start [app](src/main/java/yevhent/demo/multithreading/concurrency/datarace/MutualExclusionDemo.java)
 2. Check console output.
-3. Review code in this [package](multithreading/src/main/java/com/yevhent/concurrency/datarace).
+3. Review code in this [package](src/main/java/yevhent/demo/multithreading/concurrency/datarace).
 
 - **Problem**: There we have 2 same Threads that increase counter 10_000_000 times.
   However, since these Threads use the same shared data class, calculation goes wrong way.
@@ -85,9 +82,9 @@ Covered topics:
 
 #### Demo 5: Nested Lock
 
-1. Start [app](multithreading/src/main/java/com/yevhent/concurrency/locks/nested/NestedReentrantLockDemo.java).
+1. Start [app](src/main/java/yevhent/demo/multithreading/concurrency/locks/nested/NestedReentrantLockDemo.java).
 2. Check console output.
-3. Review code in this [package](multithreading/src/main/java/com/yevhent/concurrency/locks/nested).
+3. Review code in this [package](src/main/java/yevhent/demo/multithreading/concurrency/locks/nested).
 
 - **Nested Look Problem**: Using locks we can have situation when Thread blocks himself by acquiring same lock
   twice (without releasing after first lock).
@@ -97,9 +94,9 @@ Covered topics:
 
 #### Demo 6: Non-Blocking Lock
 
-1. Start [app](multithreading/src/main/java/com/yevhent/concurrency/locks/nonblocking/NonBlockingLockDemo.java).
+1. Start [app](src/main/java/yevhent/demo/multithreading/concurrency/locks/nonblocking/NonBlockingLockDemo.java).
 2. Check console output.
-3. Review code in this [package](multithreading/src/main/java/com/yevhent/concurrency/locks/nonblocking).
+3. Review code in this [package](src/main/java/yevhent/demo/multithreading/concurrency/locks/nonblocking).
 
 - **Non-Blocking Look**: using locks solves problem of data race, but requires you to wait unit lock is released.
   In case you don't need immediate result and have some other job to do you can use **lock try**.
@@ -107,9 +104,9 @@ Covered topics:
 
 #### Demo 7: Read-Write Lock
 
-1. Start [app](multithreading/src/main/java/com/yevhent/concurrency/locks/readwrite/ReadWriteLockDemo.java).
+1. Start [app](src/main/java/yevhent/demo/multithreading/concurrency/locks/readwrite/ReadWriteLockDemo.java).
 2. Check console output.
-3. Review code in this [package](multithreading/src/main/java/com/yevhent/concurrency/locks/readwrite).
+3. Review code in this [package](src/main/java/yevhent/demo/multithreading/concurrency/locks/readwrite).
 
 - Let's imagine situation when only one Thread is changing variable and many Threads reading it.
   With usual approach we lock both reading and writing access.
@@ -120,9 +117,9 @@ Covered topics:
 
 #### Demo 8: Multiple Locks: Deadlock problem
 
-1. Start [app](multithreading/src/main/java/com/yevhent/concurrency/locks/deadlock/DeadLockDemo.java).
+1. Start [app](src/main/java/yevhent/demo/multithreading/concurrency/locks/deadlock/DeadLockDemo.java).
 2. Check console output.
-3. Review code in this [package](multithreading/src/main/java/com/yevhent/concurrency/locks/deadlock).
+3. Review code in this [package](src/main/java/yevhent/demo/multithreading/concurrency/locks/deadlock).
 
 - **Problem**: when several Threads use several shared Locks, it might be situation when Threads blocked by each other and stuck with
   no progress.
@@ -143,9 +140,9 @@ As a result, Thread1 and Thread2 got stuck waiting each other in blocked state.
 
 #### Demo 9: Multiple Locks: Livelock problem
 
-1. Start [app](multithreading/src/main/java/com/yevhent/concurrency/locks/livelock/LiveLockDemo.java).
+1. Start [app](src/main/java/yevhent/demo/multithreading/concurrency/locks/livelock/LiveLockDemo.java).
 2. Check console output.
-3. Review code in this [package](multithreading/src/main/java/com/yevhent/concurrency/locks/livelock).
+3. Review code in this [package](src/main/java/yevhent/demo/multithreading/concurrency/locks/livelock).
 
 - **Problem**: When several Threads use several shared Locks, it might be situation when Threads do some job, but with no actual progress.
 
@@ -177,9 +174,9 @@ They doings are nothing more than just checking for Locks availability.
 
 #### Demo 10: Exception Handling: Abandoned Lock problem
 
-1. Start [app](multithreading/src/main/java/com/yevhent/concurrency/locks/abandoned/AbandonedLockDemo.java).
+1. Start [app](src/main/java/yevhent/demo/multithreading/concurrency/locks/abandoned/AbandonedLockDemo.java).
 2. Check console output.
-3. Review code in this [package](multithreading/src/main/java/com/yevhent/concurrency/locks/abandoned).
+3. Review code in this [package](src/main/java/yevhent/demo/multithreading/concurrency/locks/abandoned).
 
 - **Problem**: it's possible that Thread has some Exception thrown in runtime and going to finish its execution.
   In case such Thread managed to acquire Lock and ends without Lock releasing, 
